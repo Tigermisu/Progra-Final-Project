@@ -74,7 +74,10 @@ def knightJourney():
 
 def foundKnightPuzzle():
     print('The knight is a chess piece that can only move in "L" shape.\nIt is represented by the symbol "K" on the board.\nThe numbers, represent your possible movements.\nYou must travel each cell of the board only once.\n')
-knightJourney()
+
+
+if __name__ == '__main__':
+    knightJourney()
     
 
 

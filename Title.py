@@ -2,4 +2,7 @@ print("-------------------------------------------------------------------------
 print("                                                                       Made by:\n")
 print("                                                                 Abraham Pineda\n                                                             Christopher Jáquez\n                                                                Homero González\n                                                                    Luis Arzola\n                                                                Ricardo Trevizo")
       
-input("Press enter to begin.\n")
+if __name__ == '__main__':
+    input("Press enter to begin.\n")
+else:
+    print("\n")
