@@ -5,6 +5,7 @@ Mini puzzle - R-Soul
 Modules Used: Random~
 """
 import random
+import time
 
 def weightPuzzle(correct):
     options = [1,1,1,1,1,1,1,1,1]
@@ -73,7 +74,17 @@ def weightPuzzle(correct):
     print("\nWeights %s were placed on the left side, and %s on the right side.\n%s\n" % (used, used2,tilt))
 
 def foundWeightPuzzle():
-    print('Your eyes are attracted by a glittering object on one side of the cliff.\nAfter getting closer you can appreciate a golden scale with a note. \n"Here are nine weights, they are the same at plain sight, only that one is heavier."\n"Your goal is to find that particular one, if you wish what\'s inside that is".\n"There is but one restriction, that you may use this scale only twice."\n\nWhat do you choose?\nA: Give it a try.\nB: Let it be.\n')
+    print('It looks as if it hasn\'t been used in ages, or so you thought.')
+    time.sleep(3)
+    print('Your eyes are attracted by a glittering object hanging on the corner.')
+    time.sleep(3)
+    print("After getting closer you can appreciate a golden scale with a note:\n")
+    time.sleep(3)
+    print('"Here are nine weights, they are the same at plain sight, only that one is\nheavier. Your goal is to find that particular one, if you wish what\'s\ninside that is."\n')
+    time.sleep(8)
+    print('"There is but one restriction, that you may use this scale only twice."')
+    time.sleep(3)
+    print("\nWhat do you choose?\nA: Give it a try.\nB: Let it be.\n")
     decision = input("I choose... ")
     while decision not in ("a","b","A","B"):
         decision = input("Invalid command. Please choose again... ")
@@ -89,7 +100,11 @@ def foundWeightPuzzle():
         weightPuzzle(correct)
         print("You have one more movement. Think wisely...")
         weightPuzzle(correct)
-        guess = int(input("You tried moving the scale once more, but it won't budge.\nHowever the scale opened revealing a secret chamber, where one weight would barely fit.\nWhich one do you want to put in?  "))
+        print("You tried moving the scale once more, but it won't budge.")
+        time.sleep(3)
+        print("The scale reveals a secret chamber, where one weight would barely fit.\nGuess the heaviest goes there?")
+        time.sleep(5)
+        guess = int(input("Which one do you want to put in?  "))
         confirm = input("Weight #%s is it? (Y/N) " % (guess))
         while confirm not in ("Yes","yes","Y","y"):
             if confirm in ("n","N","No","no"):
@@ -97,9 +112,9 @@ def foundWeightPuzzle():
                 confirm = input("Choose weight #%s? (Y/N) " % (guess))
         if guess == correct:
             ### HE GUESSED IT!!! ###
-            print("You guessed correctly.\nLight comes in through a hole and illuminates the room.")##ERASE ME
+            print("\nYou guessed correctly.\nLight comes in through a hole and illuminates the room.")##ERASE ME
             return True
         else:
             ### NICE TRY ###
-            print("The weight is thrown out violently and hits you in the head. You must have guessed wrong.\nLight comes in through a hole and illuminates the room.")##ERASE ME
+            print("\nThe weight is thrown out violently and hits you in the head. You must have guessed wrong.\nLight comes in through a hole and illuminates the room.")##ERASE ME
             return False

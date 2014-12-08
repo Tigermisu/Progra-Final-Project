@@ -6,6 +6,7 @@ Modules Used: None :D
 
 One of the possible answers can be found at: http://professorlayton2walkthrough.blogspot.mx/2008/11/puzzle107.html
 """
+import time
 
 def printboard(board):
     print("-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n|%s| |%s| |%s| |%s| |%s|\n-------------------\n" % (board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9],board[10],board[11],board[12],board[13],board[14],board[15],board[16],board[17],board[18],board[19],board[20],board[21],board[22],board[23],board[24],board[25],board[26],board[27],board[28],board[29]))
@@ -67,14 +68,21 @@ def knightJourney():
         print("Only %s space(s) left!\n" % (29-movements))
     if movements == 29:
         ####You made it
-        print("You made it")###################ERASE ME
+        print("You made it!")
+        return True
+        
     else:
         ####You suck
-        print("You suck, you only finished %s/29." % (movements))####################ERASE ME
+        print("You are out of moves, you managed %s out of 29." % (movements))
+        return 3
+        
 
 def foundKnightPuzzle():
+    print("\n'The knight wishes to travel along the world, but only\nvisiting every place once.'\n")
+    time.sleep(3)
     print('The knight is a chess piece that can only move in "L" shape.\nIt is represented by the symbol "K" on the board.\nThe numbers, represent your possible movements.\nYou must travel each cell of the board only once.\n')
-
+    time.sleep(5)
+    return knightJourney()
 
 if __name__ == '__main__':
     knightJourney()

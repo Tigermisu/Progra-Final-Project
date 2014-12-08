@@ -4,7 +4,7 @@ Mini puzzle - Kagynt
 """
 
 def marblePuzzle ():
-    print('''You're walking down the street when a shady figure approaches you.\n"Hey there fellow traveler! Care for a little wager?\nYou can win what I've obtained through my journeys!\nThat is, if you can beat me....\nBe warned, once you're in the game, there's no backing out."''')
+    print('''You're walking down the path when a shady figure approaches you.\n"Hey there fellow traveler! Care for a little wager?\nYou can win what I've obtained through my journeys!\nThat is, if you can beat me....\nBe warned, once you're in the game, there's no backing out."''')
     play = input('''"So what do you say?"\nA: Let's play\nB: Nah\n''')
     while play not in ("A", "B", "a", "b"):
         play = input("Invalid command. Please choose again... \n")
@@ -53,13 +53,15 @@ def marblePuzzle ():
                 lines += com[x]
             print("|||||You have made "+str(lines)+" lines with " +str(12-remains)+" marbles|||||")
             print(grid)
-            move = str(input("Where would you like to move? | Press r to restart\n").lower())
-            while move not in ('r', 'b1', 'c1', 'f1', 'd0', 'a1', 'b0', 'e0', 'a3', 'e3', 'a0', 'f0', 'g1', 'g3', 'd2', 'c0', 'e1', 'f2', 'e2', 'g2', 'c2', 'a2', 'd1', 'g0', 'b2', 'c3'):
+            move = str(input("Where would you like to move? | Press r to restart | Type exit to give up\n").lower())
+            while move not in ('r', 'exit', 'b1', 'c1', 'f1', 'd0', 'a1', 'b0', 'e0', 'a3', 'e3', 'a0', 'f0', 'g1', 'g3', 'd2', 'c0', 'e1', 'f2', 'e2', 'g2', 'c2', 'a2', 'd1', 'g0', 'b2', 'c3'):
                 move = str(input("Invalid command. Please choose again... \n").lower())
             if move == "r":
                 grid = "-------------------\n|a0| |a1| |a2| |a3|\n-------------------\n   |b0| |b1| |b2|\n-------------------\n|c0| |c1| |c2| |c3|\n-------------------\n   |d0| |d1| |d2|\n-------------------\n|e0| |e1| |e2| |e3|\n-------------------\n   |f0| |f1| |f2|\n-------------------\n|g0| |g1| |g2| |g3|\n-------------------"
                 slots = {"a0":"a0", "a1":"a1", "a2":"a2","a3":"a3", "b0":"b0", "b1":"b1", "b2":"b2", "c0":"c0", "c1":"c1", "c2":"c2", "c3":"c3", "d0":"d0", "d1":"d1", "d2":"d2", "e0":"e0", "e1":"e1", "e2":"e2", "e3":"e3", "f0":"f0", "f1":"f1", "f2":"f2", "g0":"g0", "g1":"g1", "g2":"g2", "g3":"g3"}
                 remains = 12
+            elif move == "exit":
+                return 3
             else:
                 if slots[move] == move:
                     if remains > 0:
@@ -164,3 +166,5 @@ def marblePuzzle ():
         print('"Damn it! You won."\n')
         return True
 
+if __name__ == "__main__":
+    marblePuzzle()
